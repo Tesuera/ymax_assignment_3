@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="stylesheet" href="./sass/style.css">
+    <link rel="stylesheet" href="./sass/base.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">Rinify</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav_menu">
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- spinner -->
+      <div class="text-center mt-3" id="loader">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- current product-->
+      <div class="container d-none mt-3" id="currentProductContainer">
+        <div class="row">
+            <span class="alert alert-info d-none" id="addAlert">Added successfully.</span>
+            <div class="col-12 p-5 shadow rounded">
+                <div class="row align-items-center justify-content-center gap-3" id=currentProduct>
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- cart -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Cart Lists</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <button class="btn btn-success btn-sm" onclick="checkOut()" id="checkout">Checkout</button>
+                <p class="mb-0 text-black-50 small">Total: <span id="total" class="fs-3 fw-semibold text-primary">0$</span></p>
+            </div>
+            <div id="cartListsContainer">
+
+            </div>
+        </div>
+      </div>
+
+
+      <!-- Modal -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Alert</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            This item is already added to the cart.
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Alert</h1>
+            </div>
+            <div class="modal-body">
+              You need to Log in first.
+            </div>
+            <div class="modal-footer">
+            <a href="./signin.html" class="btn btn-secondary btn-sm">Log in</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="./js/main.js"></script>
+      <script src="./js/cart.js"></script>
+      <script src="./js/detail.js"></script>
+</body>
+</html>

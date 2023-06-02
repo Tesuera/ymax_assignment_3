@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="./sass/base.css">
+    <link rel="stylesheet" href="./sass/style.css">
+</head>
+<body>
+
+  <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">Rinify</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav_menu">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="./items-list.html">Products</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav_username">
+                    
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item active" href="./profile.html">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" onclick="logout(event)">Log out</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link">
+                    <i class="fa-solid fa-cart-shopping text-white cursor-pointer" onclick="cartOpen()"></i>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container pt-5">
+        <div class="row">
+            <div class="col-11 col-md-6 col-lg-5 mx-auto p-5 rounded shadow bg-light">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h1 class="text-primary fs-3 fw-bold">Your infos</h1>
+                    <a href="./profile_edit.html" class="btn btn-sm text-white" title="edit"><i class="fa-solid text-warning fs-5 fa-pen-to-square"></i></a>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Name : <span id="name" class="text-primary fw-semibold">zawzaw</span></li>
+                    <li class="list-group-item">Email : <span id="email" class="text-primary fw-semibold">zawzaw</span></li>
+                    <li class="list-group-item">Ph No : <span id="phone" class="text-primary fw-semibold">zawzaw</span></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+      <!-- cart -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <button class="btn btn-success btn-sm" onclick="checkOut()" id="checkout">Checkout</button>
+            <p class="mb-0 text-black-50 small">Total: <span id="total" class="fs-3 fw-semibold text-primary">0$</span></p>
+          </div>
+          <div id="cartListsContainer">
+
+          </div> 
+        </div>
+      </div>
+    
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+</html>

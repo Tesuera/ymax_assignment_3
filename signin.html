@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="./sass/base.css">
+    <link rel="stylesheet" href="./sass/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="vh-100 row align-items-center justify-content-center">
+            <form class="p-3 p-md-4 p-lg-5 rounded shadow col-9 col-md-6 col-lg-5 bg-light" id="signin_form">
+                <h1 class="fs-3 fw-bold text-primary mb-1">Rinify</h1>
+                <small class="text-black-50 mb-3 d-block">Tell us who you are.</small>
+
+                <input type="text" class="form-control form-control-sm d-block mt-3" placeholder="Name" name="name">
+                <small class="text-danger d-block mb-0 ps-2" id="error_name"></small>
+
+                <input type="text" class="form-control form-control-sm d-block mt-3" placeholder="Email" name="email">
+                <small class="text-danger d-block mb-0 ps-2" id="error_email"></small>
+
+                <input type="text" class="form-control form-control-sm d-block mt-3" placeholder="Password" name="password">
+                <small class="text-danger d-block mb-0 ps-2" id="error_password"></small>
+                
+                <input type="text" class="form-control form-control-sm d-block mt-3" placeholder="Ph no." name="phone_number">
+                <small class="text-danger d-block mb-0 ps-2" id="error_phone"></small>
+
+                <div class="d-flex align-items-center justify-content-center mt-2">
+                    <small class="text-primary fs-7">This is only temporary data.</small>
+                    <button class="btn btn-sm btn-primary fs-7 text-white rounded-0 ms-auto d-block">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/signin.js"></script>
+</body>
+</html>

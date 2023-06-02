@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check out</title>
+    <link rel="stylesheet" href="./sass/style.css">
+    <link rel="stylesheet" href="./sass/base.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">Rinify</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav_menu">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./items-list.html">Products</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav_username">
+                
+                </a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item active" href="./profile.html">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" onclick="logout(event)">Log out</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <!-- spinner -->
+      <!-- <div class="text-center mt-3" id="loader">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+      </div> -->
+
+      <!-- current product-->
+      <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 p-3 p-lg-5 shadow rounded">
+                <h1 class="text-primary fs-3 fw-bold">Check out your order</h1>
+
+                <small class="text-black-50">Tell me a brief about you. Where u live and who you are.</small>
+                <form class="mt-3" id="checkout_form">
+                    <div class="row justify-content-center">
+                        <div class="my-2 row">
+                          <div class="col-11 col-lg-6 mx-auto px-0 px-lg-3">
+                            <div class="my-2 d-block d-lg-flex align-items-center justify-content-between w-100">
+                              <label for="name_input" class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Name</label>
+                              <div class="col-lg-8">
+                                <input type="text" class="form-control form-control-sm" placeholder="eg: BoB" name="name" id="name_input">
+                                <small class="text-danger fs-7 d-block" id="error_name"></small>
+                              </div>
+                            </div>
+
+                            <div class="my-2 d-block d-lg-flex align-items-center justify-content-between">
+                              <label for="email_input" class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Email</label>
+                              <div class="col-lg-8">
+                                <input type="text" class="form-control form-control-sm" placeholder="eg: bob@gmail.com" name="email" id="email_input">
+                                <small class="text-danger fs-7 d-block" id="error_email"></small>
+                              </div>
+                            </div>
+
+                            <div class="my-2 d-block d-lg-flex align-items-center justify-content-between">
+                              <label for="phone_input" class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Phone</label>
+                              <div class="col-lg-8">
+                                <input type="text" class="form-control form-control-sm" placeholder="eg: +959xxxxxxx" name="phone_number" id="phone_input">
+                                <small class="text-danger fs-7 d-block" id="error_phone"></small>
+                              </div>
+                            </div>
+
+                            <div class="my-2 d-block d-lg-flex align-items-start justify-content-between">
+                              <label for="phone_input" class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Address</label>
+                              <div class="col-lg-8">
+                                <textarea rows="7" class="form-control form-control-sm" placeholder="Tell me a breif location of you!" name="address" id="address_input"></textarea>
+                                <small class="text-danger fs-7 d-block" id="error_address"></small>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="col-11 col-lg-6 mx-auto px-0 px-lg-3">
+                          <div class="my-2 d-block d-lg-flex align-items-center justify-content-between">
+                            <label class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Payment</label>
+                            <div class="col-lg-8">
+                                <select class="form-select form-select-sm" name="payment" id="payment_input">
+                                  <option value="0" selected>Select payment</option>
+                                  <option value="1">Cash on</option>
+                                  <option value="2">Online Banking</option>
+                                </select>
+                                <small class="text-danger fs-7 d-block" id="error_payment"></small>
+                              </div>
+                          </div>
+                          <div class="my-2 d-block d-lg-flex align-items-start justify-content-between">
+                            <label for="phone_input" class="text-black-50 small d-block d-lg-inline mb-2 mb-lg-0 col-lg-4">Order <br>Description</label>
+                            <div class="col-lg-8">
+                              <textarea rows="8" class="form-control form-control-sm" placeholder="Say anything you want to in that order" name="address" id="address_input"></textarea>
+                              <small class="text-danger fs-7 d-block" id="error_name"></small>
+                            </div>
+                          </div>
+                          <div class="mt-4">
+                            <p class="mb-0 text-black-50">Total amount: <span id="total_amount_checkout" class="h2 text-primary">300$</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <button class="btn btn-sm btn-primary text-white ms-auto d-block">Confirm Order</button>
+                </form>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-12 shadow p-3 p-lg-5">
+            <div class="d-block d-lg-flex align-items-center justify-content-between">
+              <div class="w-100 mb-3 mb-lg-0">
+                <h1 class="text-primary fs-3 fw-bold mb-2 d-flex align-items-center gap-3">Order detail <span id="item_count" class="badge bg-danger rounded-circle fs-6">0</span></h1>
+                <small class="text-black-50">Items you added to the cart. You can add or remove these whatever you want.</small>
+              </div>
+
+              <button id="removeAll" class="btn btn-danger btn-sm text-white">Remove all item</button>
+              <a href="./items-list.html" class="btn btn-outline-primary btn-sm ms-2">Go shopping</a>
+            </div>
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th class="d-none d-md-block">Item</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="checkoutlistcontainer">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- cart -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Cart Lists</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <button class="btn btn-success btn-sm" onclick="checkOut()" id="checkout">Checkout</button>
+                <p class="mb-0 text-black-50 small">Total: <span id="total" class="fs-3 fw-semibold text-primary">0$</span></p>
+            </div>
+            <div id="cartListsContainer">
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Password modals -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Alert</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <small class="text-danger d-block" id="alert_content"></small>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary text-white btn-sm" id="tryAgain">Try again</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+       <!-- alert -->
+       <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Require password</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <small class="text-black-50 d-block mb-2">Enter your password check out your order!!!</small>
+              <input type="password" class="form-control form-control-sm" id="password">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary text-white btn-sm" id="confirmBtn">Confirm</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- complete -->
+    <div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Order Successfully Placed!!</h1>
+          </div>
+          <div class="modal-body">
+            <div>
+              <p id="message_success" class="mb-0 text-black-50"></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="./items-list.html" class="btn btn-primary btn-sm text-white">Go back to shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="./js/main.js"></script>
+      <script src="./js/cart.js"></script>
+      <script src="./js/checkout.js"></script>
+</body>
+</html>
